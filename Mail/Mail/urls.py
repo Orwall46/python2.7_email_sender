@@ -22,5 +22,5 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', views.index, name='home'),
     url(r'^task/', views.send_mail_to_all, name='task'),
-    url(r'^media/django.png', views.read_mail, name='read_mail'),
+    url(r'^read_mail', views.read_mail, name='read_mail'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

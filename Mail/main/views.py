@@ -64,12 +64,13 @@ def send_mail_to_all(request):
 
 
 def read_mail(request):
-    if request.GET:
+    if 'id' in request.GET:
         code_id = request.GET['id']
         try:
             read = ReadMail.objects.get(code=code_id)
             read.is_read = True
             read.save()
         except:
-            return HttpResponse('Oopps...   ')
-    return HttpResponse('Thank you!')
+            print('Oopps...')
+    image_data = open("media/django.png", 'rb').read()
+    return HttpResponse(image_data, content_type="image/png")
